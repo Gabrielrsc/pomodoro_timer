@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Nerko+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #A77979;
+  font-family: "Nerko One", cursive;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+header h1 {
+  font-family: "Nerko One", cursive;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: #FFF;
+}
+header h1 span {
+  color: #472D2D;
+}
+
+.container-relogio {
+  background-color: #704F4F;
+  margin: 1.5rem;
+  border-radius: 30px;
+}
+.container-relogio .tipo-foco {
+  padding: 1.75rem 0;
+  text-align: center;
+  margin: auto;
+}
+.container-relogio .tipo-foco ul {
+  display: inline-flex;
+  gap: 1rem;
+}
+.container-relogio .tipo-foco ul li {
+  list-style: none;
+}
+.container-relogio .tipo-foco ul li .active {
+  background-color: #472D2D;
+}
+.container-relogio .tipo-foco ul li button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #472D2D;
+  padding: 0 2rem;
+  height: 40px;
+  border-radius: 4px;
+}
+.container-relogio .tipo-foco ul li button img {
+  width: 20px;
+}
+.container-relogio .tipo-foco ul li button span {
+  display: none;
+}
+.container-relogio .timer {
+  font-family: "Nerko One", cursive;
+  font-size: 120px;
+  color: #FFF;
+  text-align: center;
+}
+.container-relogio .botao-start {
+  text-align: center;
+}
+.container-relogio .botao-start button {
+  background-color: #FFF;
+  border: none;
+  font-family: "Nerko One", cursive;
+  color: #A77979;
+  font-size: 2.25rem;
+  padding: 0.5rem 3rem;
+  margin-top: 2rem;
+  margin-bottom: 3.75rem;
+}/*# sourceMappingURL=styles.css.map */

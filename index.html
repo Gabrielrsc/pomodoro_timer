@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-contexto="foco">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Nerko+One&display=swap" rel="stylesheet">
     <title>PomodoroTimer</title>
 </head>
 <body>
-    <h1>PomodoroTimer</h1>
-    <p>Projeto em Andamento....</p>
+    <script src="./assets/js/main.js" defer></script>
+        <header>
+            <h1>Pomodoro<span>Timer</span></h1>
+        </header>
+        <section class="container-relogio">
+            <div class="tipo-foco">
+                <ul>
+                    <li class="foco"><button data-contexto="foco" class="btn__timer btn__foco active"><img src="./assets/img/foco.svg" alt="imagem foco"><span>Foco</span></button></li>
+                    <li class="curto"><button data-contexto="curto" class="btn__timer btn__curto"><img src="./assets/img/Coffee.svg" alt="imagem pausa curta"><span>Pausa Curta</span></button></li>
+                    <li class="longo"><button data-contexto="longo" class="btn__timer btn__longo"><img src="./assets/img/Coffee.svg" alt="imagem pausa curta"><span>Pausa Longa</span></button></li>
+                </ul>
+            </div>
+            <div id="timer" class="timer"></div>
+            <div class="botao-start">
+                <button id="start-pause">START</button>
+            </div>
+        </section>
+        <!-- <section class="container-tarefas">
+            <div class="titulo-taredas-acao">
+                <h3>Lista de Tarefas</h3>
+                <div class="container__acao__tarefas">
+                    <button><img src="./assets/img/btn_acao_tarefas.svg" alt="botao de ação"></button>
+                </div>
+            </div>
+
+        </section>
+     -->
     
 </body>
 </html>
