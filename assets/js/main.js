@@ -4,11 +4,18 @@ const curtoBt = document.querySelector('.btn__curto')
 const longoBt = document.querySelector('.btn__longo')
 const botao = document.querySelectorAll('.btn__timer')
 
+const mensagemFoco = document.querySelector('.mensagem__foco')
+const focosFeitos = document.querySelector('.focos__feitos')
+
 const startPauseBt = document.querySelector('#start-pause') 
 
 const tempoNaTela = document.querySelector('#timer')
 
 const audiofim = new Audio ('assets/sons/alarm-kitchen.mp3')
+
+
+
+
 
 let tempoDecorridoEmsegundos = 1500
 let intervaloId = null
@@ -16,6 +23,7 @@ function foco(){
     tempoDecorridoEmsegundos = 15
     alterarContexto('foco')
     focoBt.classList.add('active')
+    mensagemFoco.textContent = 'Hora de Focar!'
     
 }
 
@@ -27,7 +35,7 @@ function curto() {
     tempoDecorridoEmsegundos = 3
     alterarContexto('curto')
     curtoBt.classList.add('active')
-    console.log('Test2')
+    mensagemFoco.textContent = 'Tempo para uma Pausa!';
 }
 
 curtoBt.addEventListener('click', curto)
@@ -36,7 +44,7 @@ function longo() {
     tempoDecorridoEmsegundos = 9
     alterarContexto('longo')
     longoBt.classList.add('active')
-    console.log('Test3')
+    mensagemFoco.textContent = 'Tempo para uma pausa Longa!';
 
 
 }
@@ -55,6 +63,8 @@ function alterarContexto(contexto){
 let contagemFoco = 0
 
 const contagemRegressiva = () =>{
+    focosFeitos.textContent = contagemFoco
+
     if (tempoDecorridoEmsegundos <= 0){
         audiofim.play()
         
@@ -108,3 +118,19 @@ function mostrarTempo(){
 mostrarTempo()
 
 // alert('Site em Construção')
+
+///// Tarefas
+
+const adicionarTarefas = document.querySelector('.adicionar__tarrefas')
+const campoAdicionarTarefa = document.querySelector('.adicionando__tareffas')
+const btnCancelar = document.querySelector('.btn__cancelar_adicao')
+
+adicionarTarefas.addEventListener('click', ()=> {
+    adicionarTarefas.classList.add('ocuto')
+    campoAdicionarTarefa.classList.add('ativo')
+})
+
+btnCancelar.addEventListener('click', ()=> {
+    adicionarTarefas.classList.remove('ocuto')
+    campoAdicionarTarefa.classList.remove('ativo')
+})
