@@ -133,6 +133,7 @@ header{
             width: 18px;
             height: 18px;
         }
+        
     }
     .adicionar__tarrefas{
         color: #FFF;
@@ -152,24 +153,26 @@ header{
     }
     .adicionando__tareffas{
         transition: 1s;
-        border-radius: 2px;
+        border-radius: 5px;
         margin-top: 1rem;
         display: none;
         flex-direction: column;
         gap: 1rem;
-        background-color: var(--cor-segundaria);
-        color: #FFF;
+        background-color: #FFF;
+        color: var(--cor-principal);
         padding: 1rem;
        
         input{
+            border: 1px solid #704F4F;
             width: 100%;
-            padding: 1rem 0;
-            border:none;
-            background-color: #704F4F;
+            padding: 1.5rem 0.5rem;
+            font-size: 1rem;
         }
         input::placeholder {
             font-family: var(--font-texto);
-            color: #FFF;
+            font-size: 1rem;
+            color: var(--cor-terciaria);
+
         }
 
 
@@ -181,7 +184,6 @@ header{
             button{
                 font-family: var(--font-texto);
                 border: none;
-                background-color: var(--cor-terciaria);
                 padding: 0.5rem;
                 border-radius: 2px;
                 border: 1px solid var(--cor-principal);
