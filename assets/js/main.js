@@ -121,16 +121,26 @@ mostrarTempo()
 
 ///// Tarefas
 
-const adicionarTarefas = document.querySelector('.adicionar__tarrefas')
-const campoAdicionarTarefa = document.querySelector('.adicionando__tareffas')
+const adicionarTarefas = document.querySelector('.adicionar__tarefas')
+const campoAdicionarTarefa = document.querySelector('.adicionando__tarefas')
 const btnCancelar = document.querySelector('.btn__cancelar_adicao')
+const btnOpcao = document.querySelector('.opcaos')
+const btnOpcaoLimpar = document.querySelector('.opcaos__menu')
 
 adicionarTarefas.addEventListener('click', ()=> {
     adicionarTarefas.classList.add('ocuto')
     campoAdicionarTarefa.classList.add('ativo')
+    btnOpcaoLimpar.classList.remove('ativo')
 })
 
 btnCancelar.addEventListener('click', ()=> {
     adicionarTarefas.classList.remove('ocuto')
     campoAdicionarTarefa.classList.remove('ativo')
+})
+
+btnOpcao.addEventListener('click', ()=>{
+    btnOpcaoLimpar.classList.toggle('ativo')
+    adicionarTarefas.classList.remove('ocuto')
+    campoAdicionarTarefa.classList.remove('ativo')
+    
 })

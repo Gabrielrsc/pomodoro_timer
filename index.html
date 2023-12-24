@@ -32,17 +32,29 @@
         <section class="campo__tarefas">
             <div class="tarefas">
                 <h3>Tarefas</h3>
-                <div class="opcaos"><img src="./assets/img/threedots-white.png" alt=""></div>                
+                <div class="opcaos"><img src="./assets/img/threedots-white.png" alt=""></div>
+                <ul  class="opcaos__menu">
+                    <li><img src="./assets/img/delete-black.png" alt="">Limpar tarefas concluídas</li>
+                    <li><img src="./assets/img/delete-black.png" alt="">Limpar todas as tarefas</li>
+                </ul>                
             </div>
-            <div class="adicionar__tarrefas">
+            <div class="adicionar__tarefas">
                 <span>+ Adcionar Tarrefas</span>
             </div>
-            <div class="adicionando__tareffas">
+            <div class="adicionando__tarefas">
                 <h4>Adicionando Tarrefas</h4>
                 <input type="text" placeholder="Em que você está trabalhando?">
+                <H6>Pomodoros</H6>
+                <div class="qtd_pomodoros_tarefa">
+                    <input type="number" min="0" step="1" value="1">
+                    <div class="btn_qtd_pomodoro">
+                        <button class="qtd_btn up_qtd"><img src="./assets/img/caret-up.png" alt="Seta para cima"></button>
+                        <button class=" qtd_btn down_qtd"><img src="./assets/img/caret-down.png" alt="Seta para baixo"></button>
+                    </div>
+                </div>
                 <div class="btns">
                     <button class="btn__cancelar_adicao">Cancelar</button>
-                    <button>Salvar</button> 
+                    <button  class="btn__salvar">Salvar</button> 
                 </div>
                 
             </div>

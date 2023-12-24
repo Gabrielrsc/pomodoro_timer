@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   background-color: var(--cor-terciaria);
   font-family: var(--font-texto);
@@ -101,6 +105,7 @@ header h1 span {
   margin: 1rem;
 }
 .campo__tarefas .tarefas {
+  position: relative;
   color: var(--cor-principal);
   font-weight: 300;
   display: flex;
@@ -124,7 +129,31 @@ header h1 span {
   width: 18px;
   height: 18px;
 }
-.campo__tarefas .adicionar__tarrefas {
+.campo__tarefas .tarefas .opcaos__menu {
+  max-width: 200px;
+  padding: 10px;
+  display: none;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  right: 0;
+  top: 2.2rem;
+  position: absolute;
+  background: #fff;
+}
+.campo__tarefas .tarefas .opcaos__menu li {
+  display: flex;
+  text-align: center;
+  padding: 1rem;
+  align-items: center;
+}
+.campo__tarefas .tarefas .opcaos__menu img {
+  margin-right: 0.5rem;
+  width: 15px;
+}
+.campo__tarefas .tarefas .ativo {
+  display: block;
+}
+.campo__tarefas .adicionar__tarefas {
   color: #FFF;
   transition: 1s;
   cursor: pointer;
@@ -133,13 +162,13 @@ header h1 span {
   padding: 1rem 0;
   border: 2px dashed var(--cor-principal);
 }
-.campo__tarefas .adicionar__tarrefas:hover {
+.campo__tarefas .adicionar__tarefas:hover {
   background-color: #704F4F;
 }
 .campo__tarefas .ocuto {
   display: none;
 }
-.campo__tarefas .adicionando__tareffas {
+.campo__tarefas .adicionando__tarefas {
   transition: 1s;
   border-radius: 5px;
   margin-top: 1rem;
@@ -150,38 +179,71 @@ header h1 span {
   color: var(--cor-principal);
   padding: 1rem;
 }
-.campo__tarefas .adicionando__tareffas input {
+.campo__tarefas .adicionando__tarefas input {
   border: 1px solid #704F4F;
   width: 100%;
   padding: 1.5rem 0.5rem;
   font-size: 1rem;
 }
-.campo__tarefas .adicionando__tareffas input::-moz-placeholder {
+.campo__tarefas .adicionando__tarefas input::-moz-placeholder {
   font-family: var(--font-texto);
   font-size: 1rem;
   color: var(--cor-terciaria);
 }
-.campo__tarefas .adicionando__tareffas input::placeholder {
+.campo__tarefas .adicionando__tarefas input::placeholder {
   font-family: var(--font-texto);
   font-size: 1rem;
   color: var(--cor-terciaria);
 }
-.campo__tarefas .adicionando__tareffas .btns {
+.campo__tarefas .adicionando__tarefas h6 {
+  font-size: 1rem;
+}
+.campo__tarefas .adicionando__tarefas .qtd_pomodoros_tarefa {
+  display: flex;
+}
+.campo__tarefas .adicionando__tarefas .qtd_pomodoros_tarefa input {
+  width: 70px;
+  font-weight: 600;
+  color: #472D2D;
+  text-align: left;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+}
+.campo__tarefas .adicionando__tarefas .qtd_pomodoros_tarefa .btn_qtd_pomodoro {
+  margin-left: 0.5rem;
+}
+.campo__tarefas .adicionando__tarefas .qtd_pomodoros_tarefa .btn_qtd_pomodoro .qtd_btn {
+  text-align: center;
+  margin: 0 -0.2rem;
+  padding: 0.5rem;
+  background-color: #FFF;
+  border: 1px solid #472D2D;
+  border-radius: 4px;
+}
+.campo__tarefas .adicionando__tarefas .qtd_pomodoros_tarefa .btn_qtd_pomodoro .qtd_btn img {
+  width: 60%;
+}
+.campo__tarefas .adicionando__tarefas .btns {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   gap: 0.5rem;
 }
-.campo__tarefas .adicionando__tareffas .btns button {
+.campo__tarefas .adicionando__tarefas .btns button {
   font-family: var(--font-texto);
   border: none;
   padding: 0.5rem;
   border-radius: 2px;
   border: 1px solid var(--cor-principal);
 }
-.campo__tarefas .adicionando__tareffas .btns button:hover {
+.campo__tarefas .adicionando__tarefas .btns button:hover {
   background: var(--cor-principal);
   color: #FFF;
+}
+.campo__tarefas .adicionando__tarefas .btns .btn__salvar {
+  background-color: #472D2D;
+  color: #fff;
 }
 .campo__tarefas .ativo {
   display: flex;
