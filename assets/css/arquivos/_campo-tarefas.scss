@@ -1,0 +1,207 @@
+@import './variables';
+
+/* Campo de Tarefas */
+.campo__tarefas {
+    margin: 1rem;
+
+    .tarefas {
+        position: relative;
+        color: var(--cor-principal);
+        font-weight: 300;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        border-bottom: 1px solid var(--cor-principal);
+        padding-bottom: 1rem;
+
+        .opcaos {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--cor-segundaria);
+        }
+
+        .opcaos img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .opcaos__menu {
+            max-width: 200px;
+            padding: 10px;
+            display: none;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            right: 0;
+            top: 2.2rem;
+            position: absolute;
+            background: #fff;
+
+            li {
+                display: flex;
+                text-align: center;
+                padding: 1rem;
+                align-items: center;
+            }
+
+            img {
+                margin-right: 0.5rem;
+                width: 15px;
+            }
+        }
+
+        .ativo {
+            display: block;
+        }
+    }
+
+    .tarefas__todo {
+        li {
+            display: flex;
+            justify-content: space-between;
+            background-color: #FFF;
+            border-left: #472D2D 4px solid;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+
+            .tarefas_nome {
+                display: flex;
+            }
+
+            .check {
+                width: 22px;
+                height: 22px;
+                border: 2px solid rgb(223, 223, 223);
+                background-color: rgb(223, 223, 223);
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+
+            .check::after {
+                content: "";
+                display: block;
+                margin-left: 5px;
+                width: 5px;
+                height: 11px;
+                border-style: solid;
+                border-color: rgb(255, 255, 255);
+                border-image: initial;
+                border-width: 0px 3px 3px 0px;
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    .adicionar__tarefas {
+        color: #FFF;
+        transition: 1s;
+        cursor: pointer;
+        margin-top: 1rem;
+        text-align: center;
+        padding: 1rem 0;
+        border: 2px dashed var(--cor-principal);
+    }
+
+    .adicionar__tarefas:hover {
+        background-color: #704F4F;
+    }
+
+    .ocuto {
+        display: none;
+    }
+
+    .adicionando__tarefas {
+        transition: 1s;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #FFF;
+        color: var(--cor-principal);
+        padding: 1rem;
+
+        textarea {
+            border: 1px solid #704F4F;
+            width: 100%;
+            padding: 1.5rem 0.5rem;
+            font-size: 1rem;
+        }
+
+        textarea::placeholder {
+            font-family: var(--font-texto);
+            font-size: 1rem;
+            color: var(--cor-terciaria);
+        }
+
+        h6 {
+            font-size: 1rem;
+        }
+
+        .qtd_pomodoros_tarefa {
+            display: flex;
+
+            input {
+                width: 70px;
+                font-weight: 600;
+                color: #472D2D;
+                text-align: left;
+                font-size: 1rem;
+                padding: 0.5rem 0.5rem;
+                border-radius: 4px;
+            }
+
+            .btn_qtd_pomodoro {
+                margin-left: 0.5rem;
+
+                .qtd_btn {
+                    text-align: center;
+                    margin: 0 -0.2rem;
+                    padding: 0.5rem;
+                    background-color: #FFF;
+                    border: 1px solid #472D2D;
+                    border-radius: 4px;
+
+                    img {
+                        width: 60%;
+                    }
+                }
+            }
+        }
+
+        .btns {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 0.5rem;
+
+            button {
+                font-family: var(--font-texto);
+                border: none;
+                padding: 0.5rem;
+                border-radius: 2px;
+                border: 1px solid var(--cor-principal);
+            }
+
+            button:hover {
+                background: var(--cor-principal);
+                color: #FFF;
+            }
+
+            .btn__salvar {
+                background-color: #472D2D;
+                color: #FFF;
+            }
+        }
+    }
+
+    .ativo {
+        display: flex;
+    }
+}

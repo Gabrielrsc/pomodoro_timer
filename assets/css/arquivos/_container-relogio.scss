@@ -1,0 +1,66 @@
+@import 'variables';
+
+/* Container Relógio */
+.container-relogio {
+    background-color: var(--cor-segundaria);
+    margin: 1.5rem 1rem;
+    border-radius: 6px;
+
+    .tipo-foco {
+        padding: 1rem 0;
+        text-align: center;
+        margin: auto;
+
+        ul {
+            display: inline-flex;
+            gap: 1rem;
+
+            li {
+                list-style: none;
+
+                .active {
+                    background-color: var(--cor-principal);
+                }
+
+                button {
+                    color: #FFF;
+                    background: rgba(255, 255, 255, 0.10);
+                    border: 2px solid var(--cor-principal);
+                    padding: 0rem 2rem;
+                    height: 40px;
+                    border-radius: 4px;
+
+                    img {
+                        width: 20px;
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .timer {
+        font-size: 7rem;
+        color: #FFF;
+        text-align: center;
+    }
+
+    .botao-start {
+        text-align: center;
+
+        button {
+            cursor: pointer;
+            font-weight: 700;
+            background-color: #FFF;
+            border: none;
+            color: var(--cor-principal);
+            font-size: 2.25rem;
+            padding: 0.5rem 3rem;
+            margin-top: 1rem;
+            margin-bottom: 1.75rem;
+        }
+    }
+}

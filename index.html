@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-contexto="foco">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,57 +10,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Nerko+One&display=swap" rel="stylesheet">
     <title>PomodoroTimer</title>
 </head>
+
 <body>
     <script src="./assets/js/main.js" defer></script>
-        <header>
-            <h1>Pomodoro<span>Timer</span></h1>
-        </header>
-        <section class="container-relogio">
-            <div class="tipo-foco">
-                <ul>
-                    <li class="foco"><button data-contexto="foco" class="btn__timer btn__foco active"><img src="./assets/img/foco.svg" alt="imagem foco"><span>Foco</span></button></li>
-                    <li class="curto"><button data-contexto="curto" class="btn__timer btn__curto"><img src="./assets/img/Coffee.svg" alt="imagem pausa curta"><span>Pausa Curta</span></button></li>
-                    <li class="longo"><button data-contexto="longo" class="btn__timer btn__longo"><img src="./assets/img/Coffee.svg" alt="imagem pausa curta"><span>Pausa Longa</span></button></li>
-                </ul>
-            </div>
-            <div id="timer" class="timer"></div>
-            <div class="botao-start">
-                <button id="start-pause">START</button>
-            </div>
-        </section>
-        <section class="contator_de_foco"><span class="focos__feitos">#1</span><p class="mensagem__foco">Hora de Focar!</p></section>
-
-        <section class="campo__tarefas">
-            <div class="tarefas">
-                <h3>Tarefas</h3>
-                <div class="opcaos"><img src="./assets/img/threedots-white.png" alt=""></div>
-                <ul  class="opcaos__menu">
-                    <li><img src="./assets/img/delete-black.png" alt="">Limpar tarefas concluídas</li>
-                    <li><img src="./assets/img/delete-black.png" alt="">Limpar todas as tarefas</li>
-                </ul>                
-            </div>
-            <div class="adicionar__tarefas">
-                <span>+ Adcionar Tarrefas</span>
-            </div>
-            <div class="adicionando__tarefas">
-                <h4>Adicionando Tarrefas</h4>
-                <input type="text" placeholder="Em que você está trabalhando?">
-                <H6>Pomodoros</H6>
-                <div class="qtd_pomodoros_tarefa">
-                    <input type="number" min="0" step="1" value="1">
-                    <div class="btn_qtd_pomodoro">
-                        <button class="qtd_btn up_qtd"><img src="./assets/img/caret-up.png" alt="Seta para cima"></button>
-                        <button class=" qtd_btn down_qtd"><img src="./assets/img/caret-down.png" alt="Seta para baixo"></button>
-                    </div>
+    <header>
+        <h1>Pomodoro<span>Timer</span></h1>
+    </header>
+    <section class="container-relogio">
+        <div class="tipo-foco">
+            <ul>
+                <li class="foco">
+                    <button data-contexto="foco" class="btn__timer btn__foco active">
+                        <img src="./assets/img/foco.svg" alt="Ícone de foco">
+                        <span>Foco</span>
+                    </button>
+                </li>
+                <li class="curto">
+                    <button data-contexto="curto" class="btn__timer btn__curto">
+                        <img src="./assets/img/Coffee.svg" alt="Ícone de pausa curta">
+                        <span>Pausa Curta</span>
+                    </button>
+                </li>
+                <li class="longo">
+                    <button data-contexto="longo" class="btn__timer btn__longo">
+                        <img src="./assets/img/Coffee.svg" alt="Ícone de pausa longa">
+                        <span>Pausa Longa</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div id="timer" class="timer"></div>
+        <div class="botao-start">
+            <button id="start-pause">START</button>
+        </div>
+    </section>
+    <section class="contator_de_foco">
+        <span class="focos__feitos"></span>
+        <p class="mensagem__foco"></p>
+    </section>
+    <section class="campo__tarefas">
+        <div class="tarefas">
+            <h3>Tarefas</h3>
+            <div class="opcaos"><img src="./assets/img/threedots-white.png" alt="Ícone de opções"></div>
+            <ul class="opcaos__menu">
+                <li><img src="./assets/img/delete-black.png" alt="Ícone de excluir">Limpar tarefas concluídas</li>
+                <li><img src="./assets/img/delete-black.png" alt="Ícone de excluir">Limpar todas as tarefas</li>
+            </ul>
+        </div>
+        <ul class="tarefas__todo"></ul>
+        <div class="adicionar__tarefas">
+            <span>+ Adicionar Tarefas</span>
+        </div>
+        <form class="adicionando__tarefas">
+            <h4>Adicionando Tarefas</h4>
+            <textarea class="app__form-input" type="text" placeholder="Em que você está trabalhando?"></textarea>
+            <label for="number_pomodoros">Pomodoros</label>
+            <div class="qtd_pomodoros_tarefa">
+                <input type="number" id="number_pomodoros" min="0" step="1" value="1" class="number_pomodoros">
+                <div class="btn_qtd_pomodoro">
+                    <button class="qtd_btn up_qtd" type="button">
+                        <img src="./assets/img/caret-up.png" alt="Seta para cima">
+                    </button>
+                    <button class="qtd_btn down_qtd" type="button">
+                        <img src="./assets/img/caret-down.png" alt="Seta para baixo">
+                    </button>
                 </div>
-                <div class="btns">
-                    <button class="btn__cancelar_adicao">Cancelar</button>
-                    <button  class="btn__salvar">Salvar</button> 
-                </div>
-                
             </div>
-        </section>
-        
-    
+            <div class="btns">
+                <button class="btn__cancelar_adicao">Cancelar</button>
+                <button class="btn__salvar">Salvar</button>
+            </div>
+        </form>
+    </section>
 </body>
+
 </html>
