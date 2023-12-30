@@ -233,7 +233,7 @@ header h1 span {
 }
 .campo__tarefas .tarefas__todo li:hover, .campo__tarefas .tarefas__todo .li__acionado {
   border-color: var(--cor-principal);
-  box-shadow: 2px 2px 2px 0px;
+  box-shadow: 2px 2px 2px 0px var(--cor-principal);
 }
 .campo__tarefas .adicionar__tarefas {
   color: #FFF;

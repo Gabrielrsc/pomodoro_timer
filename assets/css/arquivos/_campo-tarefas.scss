@@ -109,7 +109,7 @@
         }
         li:hover, .li__acionado{
             border-color: var(--cor-principal);
-            box-shadow:  2px 2px 2px 0px;
+            box-shadow:  2px 2px 2px 0px var(--cor-principal);
         }
     }
 
