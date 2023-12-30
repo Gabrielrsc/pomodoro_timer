@@ -52,45 +52,36 @@ function alterarContexto(contexto) {
     localStorage.setItem('contextoAtual', contexto);
 }
 
-function exibirContextoAtual() {
-    const contextoSalvo = localStorage.getItem('contextoAtual');
-    if (contextoSalvo) {
-        alterarContexto(contextoSalvo);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    configurarContextoInicial();
-    exibirContextoAtual();
-});
-
 function configurarContextoInicial() {
     const contextoSalvo = localStorage.getItem('contextoAtual');
-    if (contextoSalvo) {
-        alterarContexto(contextoSalvo);
-    } else {
+    foco();
+    if (contextoSalvo === 'foco'){
         foco();
+    }if(contextoSalvo == 'longo'){
+        longo();
+    }else if(contextoSalvo == 'curto'){
+        curto();
     }
+    
 }
 
 function contagemRegressiva() {
-    focosFeitos.textContent = contagemFoco;
-
     if (tempoDecorridoEmsegundos <= 0) {
         finalizarFoco();
         return;
     }
 
-    tempoDecorridoEmsegundos -= 1;
+    tempoDecorridoEmsegundos = Math.max(0, tempoDecorridoEmsegundos - 1);
     mostrarTempo();
 }
+
 
 function finalizarFoco() {
     audiofim.play();
 
     const focoAtivo = html.getAttribute('data-contexto');
     if (focoAtivo === 'foco') {
-        contagemFoco++;
+        contagemFoco ++
         const tarefaAtual = obterTarefaAtual();
         if (tarefaAtual) {
             tarefaAtual.pomodoroRealizados++;
@@ -98,7 +89,6 @@ function finalizarFoco() {
             atualizarQuantidadeFocos();
             console.log('Pomodoros realizados na tarefa atual:', tarefaAtual.pomodoroRealizados);
         }
-
         if (contagemFoco === 4) {
             contagemFoco = 0;
             longo();
@@ -107,7 +97,9 @@ function finalizarFoco() {
         }
     } else {
         foco();
+
     }
+
 
     zerar();
 }
@@ -143,6 +135,9 @@ function mostrarTempo() {
     tempoNaTela.innerHTML = tempoFormatado;
 }
 
+
+///Lista de Tarefas
+
 const adicionarTarefas = document.querySelector('.adicionar__tarefas');
 const campoAdicionarTarefa = document.querySelector('.adicionando__tarefas');
 const btnCancelar = document.querySelector('.btn__cancelar_adicao');
@@ -165,7 +160,6 @@ function criarElementoTarefa(tarefa) {
     const spanPomodoro = document.createElement('span');
     spanPomodoro.classList.add('numero_de_pomodoro');
     spanPomodoro.textContent = `${tarefa.pomodoroRealizados}/${tarefa.pomodoro}`;
-
     li.appendChild(divTarefas);
     divTarefas.appendChild(divCheck);
     divTarefas.appendChild(spanDescricao);
@@ -266,12 +260,25 @@ const listaTarefas = document.querySelector('.tarefas__todo');
 
 listaTarefas.addEventListener('click', function(event) {
     const tarefaClicada = event.target.closest('li');
-    
+
     if (tarefaClicada) {
+        document.querySelectorAll('.tarefas__todo li').forEach((tarefa) => {
+            tarefa.classList.remove('li__acionado');
+        });
+
+        tarefaClicada.classList.toggle('li__acionado');
+
         const nomeTarefa = tarefaClicada.querySelector('.tarefas_nome span').textContent;
         mensagemFoco.textContent = `Foco na Tarefa: ${nomeTarefa}`;
+
+        const checkFeito = event.target.closest('.check');
+        if (checkFeito) {
+            checkFeito.classList.toggle('check__feito');
+        }
     }
 });
+
+
 
 function contarFocosNasTarefas() {
     let quantidadeFocos = 0;
@@ -303,5 +310,4 @@ function atualizarQuantidadeFocos() {
 document.querySelector('header h1').addEventListener('click', atualizarQuantidadeFocos);
 document.addEventListener('DOMContentLoaded', () => {
     configurarContextoInicial();
-    exibirContextoAtual();
 });

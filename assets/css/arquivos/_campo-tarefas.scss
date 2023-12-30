@@ -32,8 +32,8 @@
         }
 
         .opcaos__menu {
-            max-width: 200px;
-            padding: 10px;
+            max-width: 270px;
+            padding: 5px;
             display: none;
             border-radius: 10px;
             font-size: 0.8rem;
@@ -41,8 +41,10 @@
             top: 2.2rem;
             position: absolute;
             background: #fff;
+            border: 2px solid var(--cor-principal);
 
             li {
+                cursor: pointer;
                 display: flex;
                 text-align: center;
                 padding: 1rem;
@@ -65,13 +67,17 @@
             display: flex;
             justify-content: space-between;
             background-color: #FFF;
-            border-left: #472D2D 4px solid;
+            border-left: #666 4px solid;
             border-radius: 6px;
             padding: 1rem;
             margin: 0.5rem 0;
 
             .tarefas_nome {
                 display: flex;
+            }
+
+            .tarefas_nome .tarefas_nome_feito{
+                text-decoration:line-through;
             }
 
             .check {
@@ -95,6 +101,15 @@
                 border-width: 0px 3px 3px 0px;
                 transform: rotate(45deg);
             }
+            .check__feito{
+                background-color: var(--cor-principal);
+                border-color: var(--cor-principal);
+                cursor: pointer;
+            }
+        }
+        li:hover, .li__acionado{
+            border-color: var(--cor-principal);
+            box-shadow:  2px 2px 2px 0px;
         }
     }
 

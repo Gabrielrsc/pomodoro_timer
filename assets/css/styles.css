@@ -67,6 +67,11 @@ header h1 span {
   background-color: var(--cor-principal);
 }
 .container-relogio .tipo-foco ul li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
   color: #FFF;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid var(--cor-principal);
@@ -81,7 +86,7 @@ header h1 span {
   display: none;
 }
 .container-relogio .timer {
-  font-size: 7rem;
+  font-size: 6rem;
   color: #FFF;
   text-align: center;
 }
@@ -98,6 +103,8 @@ header h1 span {
   padding: 0.5rem 3rem;
   margin-top: 1rem;
   margin-bottom: 1.75rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px;
 }
 
 /* Definição de Variáveis */
@@ -110,12 +117,12 @@ header h1 span {
 }
 
 /* Contador de Foco */
-.contador-de-foco {
+.contator_de_foco {
   text-align: center;
   font-size: 1rem;
   color: #fff;
 }
-.contador-de-foco p {
+.contator_de_foco p {
   font-weight: 300;
 }
 
@@ -158,8 +165,8 @@ header h1 span {
   height: 18px;
 }
 .campo__tarefas .tarefas .opcaos__menu {
-  max-width: 200px;
-  padding: 10px;
+  max-width: 270px;
+  padding: 5px;
   display: none;
   border-radius: 10px;
   font-size: 0.8rem;
@@ -167,8 +174,10 @@ header h1 span {
   top: 2.2rem;
   position: absolute;
   background: #fff;
+  border: 2px solid var(--cor-principal);
 }
 .campo__tarefas .tarefas .opcaos__menu li {
+  cursor: pointer;
   display: flex;
   text-align: center;
   padding: 1rem;
@@ -185,13 +194,16 @@ header h1 span {
   display: flex;
   justify-content: space-between;
   background-color: #FFF;
-  border-left: #472D2D 4px solid;
+  border-left: #666 4px solid;
   border-radius: 6px;
   padding: 1rem;
   margin: 0.5rem 0;
 }
 .campo__tarefas .tarefas__todo li .tarefas_nome {
   display: flex;
+}
+.campo__tarefas .tarefas__todo li .tarefas_nome .tarefas_nome_feito {
+  text-decoration: line-through;
 }
 .campo__tarefas .tarefas__todo li .check {
   width: 22px;
@@ -213,6 +225,15 @@ header h1 span {
      border-image: initial;
   border-width: 0px 3px 3px 0px;
   transform: rotate(45deg);
+}
+.campo__tarefas .tarefas__todo li .check__feito {
+  background-color: var(--cor-principal);
+  border-color: var(--cor-principal);
+  cursor: pointer;
+}
+.campo__tarefas .tarefas__todo li:hover, .campo__tarefas .tarefas__todo .li__acionado {
+  border-color: var(--cor-principal);
+  box-shadow: 2px 2px 2px 0px;
 }
 .campo__tarefas .adicionar__tarefas {
   color: #FFF;

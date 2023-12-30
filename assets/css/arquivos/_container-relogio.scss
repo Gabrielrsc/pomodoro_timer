@@ -23,18 +23,22 @@
                 }
 
                 button {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.7rem;
                     color: #FFF;
                     background: rgba(255, 255, 255, 0.10);
                     border: 2px solid var(--cor-principal);
-                    padding: 0rem 2rem;
+                    padding:0rem 2rem;
                     height: 40px;
                     border-radius: 4px;
 
                     img {
                         width: 20px;
                     }
-
-                    span {
+                    span{
                         display: none;
                     }
                 }
@@ -43,13 +47,14 @@
     }
 
     .timer {
-        font-size: 7rem;
+        font-size: 6rem;
         color: #FFF;
         text-align: center;
     }
 
     .botao-start {
         text-align: center;
+
 
         button {
             cursor: pointer;
@@ -61,6 +66,8 @@
             padding: 0.5rem 3rem;
             margin-top: 1rem;
             margin-bottom: 1.75rem;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px 2px;
         }
     }
 }
