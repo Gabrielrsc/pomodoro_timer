@@ -1,7 +1,6 @@
 let tempoDecorridoEmsegundos = 1500;
-
 const html = document.querySelector('html');
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 const focoBt = document.querySelector('.btn__foco');
 const curtoBt = document.querySelector('.btn__curto');
 const longoBt = document.querySelector('.btn__longo');
@@ -12,51 +11,40 @@ const startPauseBt = document.querySelector('#start-pause');
 const tempoNaTela = document.querySelector('#timer');
 const audiofim = new Audio('assets/sons/alarm-kitchen.mp3');
 
-
-
-
-/// Parte de Configuracao do TIMER POMODORO
-const abrirConfiguracao = document.querySelector('.configuracao_pomodoro_container')
-const botaoAbrirConfiguracao = document.querySelector('.btn_config')
-const botaoFecharConfiguracao = document.querySelector('.remover_configuracao')
-
-function abrirEFecharMenuConfiguracao(){
-    abrirConfiguracao.classList.toggle('esconder')
-    body.classList.toggle('scroll')
-}
-
-//Abrir Menu de Configuracao
-botaoAbrirConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao)
-//Fechar Menu de Configuracao
-botaoFecharConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao)
-
-//Configurando Tempo nos Input
+const abrirConfiguracao = document.querySelector('.configuracao_pomodoro_container');
+const botaoAbrirConfiguracao = document.querySelector('.btn_config');
+const botaoFecharConfiguracao = document.querySelector('.remover_configuracao');
 const botaoConfiguracao = document.querySelector('.configuracao_botao');
 const pomodoroInput = document.getElementById('pomodoroInput');
 const curtoInput = document.getElementById('curtoInput');
 const longoInput = document.getElementById('longoInput');
 
+// Função para abrir ou fechar o menu de configuração
+function abrirEFecharMenuConfiguracao() {
+    abrirConfiguracao.classList.toggle('esconder');
+    body.classList.toggle('scroll');
+}
 
-//Salvando as Configuracao de Tempo
+// Eventos para abrir e fechar o menu de configuração
+botaoAbrirConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao);
+botaoFecharConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao);
+
+// Configurando os tempos nos inputs
 botaoConfiguracao.addEventListener('click', () => {
-    abrirEFecharMenuConfiguracao()
+    abrirEFecharMenuConfiguracao();
     const pomodoroInputValue = parseInt(pomodoroInput.value, 10);
     const curtoInputValue = parseInt(curtoInput.value, 10);
     const longoInputValue = parseInt(longoInput.value, 10);
 
-    // Verifique se os valores são válidos
     if (!isNaN(pomodoroInputValue) && !isNaN(curtoInputValue) && !isNaN(longoInputValue)) {
         definirTempo(pomodoroInputValue);
         localStorage.setItem('pomodoroInputValue', pomodoroInputValue);
 
-        definirTempo(curtoInputValue);  // Corrigido aqui
+        definirTempo(curtoInputValue);
         localStorage.setItem('curtoInputValue', curtoInputValue);
 
-        definirTempo(longoInputValue);  // Corrigido aqui
+        definirTempo(longoInputValue);
         localStorage.setItem('longoInputValue', longoInputValue);
-
-        // Atualize os campos de entrada com os novos valores
-        
     } else {
         alert('Por favor, insira valores numéricos válidos.');
     }
@@ -82,8 +70,7 @@ function configurarContextoInicial() {
     curtoInput.value = curtoInputValue;
     longoInput.value = longoInputValue;
 
-    foco();  // Configurar inicialmente como foco
-
+    foco();
     if (contextoSalvo === 'foco') {
         foco();
         definirTempo(pomodoroInputValue);
@@ -95,7 +82,6 @@ function configurarContextoInicial() {
         definirTempo(longoInputValue);
     }
 }
-
 
 mostrarConfiguracaoAtual();
 configurarContextoInicial();
@@ -141,6 +127,7 @@ function alterarContexto(contexto) {
     html.setAttribute('data-contexto', contexto);
     localStorage.setItem('contextoAtual', contexto);
 }
+
 function contagemRegressiva() {
     if (tempoDecorridoEmsegundos <= 0) {
         finalizarFoco();
@@ -151,13 +138,12 @@ function contagemRegressiva() {
     mostrarTempo();
 }
 
-
 function finalizarFoco() {
     audiofim.play();
 
     const focoAtivo = html.getAttribute('data-contexto');
     if (focoAtivo === 'foco') {
-        contagemFoco ++
+        contagemFoco++;
         const tarefaAtual = obterTarefaAtual();
         if (tarefaAtual) {
             tarefaAtual.pomodoroRealizados++;
@@ -173,9 +159,7 @@ function finalizarFoco() {
         }
     } else {
         foco();
-
     }
-
 
     zerar();
 }
@@ -211,9 +195,7 @@ function mostrarTempo() {
     tempoNaTela.innerHTML = tempoFormatado;
 }
 
-
-///Lista de Tarefas
-
+// Lista de Tarefas
 const adicionarTarefas = document.querySelector('.adicionar__tarefas');
 const campoAdicionarTarefa = document.querySelector('.adicionando__tarefas');
 const btnCancelar = document.querySelector('.btn__cancelar_adicao');
@@ -353,8 +335,6 @@ listaTarefas.addEventListener('click', function(event) {
         }
     }
 });
-
-
 
 function contarFocosNasTarefas() {
     let quantidadeFocos = 0;
