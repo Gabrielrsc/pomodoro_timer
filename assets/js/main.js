@@ -1,4 +1,7 @@
+let tempoDecorridoEmsegundos = 1500;
+
 const html = document.querySelector('html');
+const body = document.querySelector('body')
 const focoBt = document.querySelector('.btn__foco');
 const curtoBt = document.querySelector('.btn__curto');
 const longoBt = document.querySelector('.btn__longo');
@@ -9,30 +12,117 @@ const startPauseBt = document.querySelector('#start-pause');
 const tempoNaTela = document.querySelector('#timer');
 const audiofim = new Audio('assets/sons/alarm-kitchen.mp3');
 
-let tempoDecorridoEmsegundos = 1500;
+
+
+
+/// Parte de Configuracao do TIMER POMODORO
+const abrirConfiguracao = document.querySelector('.configuracao_pomodoro_container')
+const botaoAbrirConfiguracao = document.querySelector('.btn_config')
+const botaoFecharConfiguracao = document.querySelector('.remover_configuracao')
+
+function abrirEFecharMenuConfiguracao(){
+    abrirConfiguracao.classList.toggle('esconder')
+    body.classList.toggle('scroll')
+}
+
+//Abrir Menu de Configuracao
+botaoAbrirConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao)
+//Fechar Menu de Configuracao
+botaoFecharConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao)
+
+//Configurando Tempo nos Input
+const botaoConfiguracao = document.querySelector('.configuracao_botao');
+const pomodoroInput = document.getElementById('pomodoroInput');
+const curtoInput = document.getElementById('curtoInput');
+const longoInput = document.getElementById('longoInput');
+
+
+//Salvando as Configuracao de Tempo
+botaoConfiguracao.addEventListener('click', () => {
+    abrirEFecharMenuConfiguracao()
+    const pomodoroInputValue = parseInt(pomodoroInput.value, 10);
+    const curtoInputValue = parseInt(curtoInput.value, 10);
+    const longoInputValue = parseInt(longoInput.value, 10);
+
+    // Verifique se os valores são válidos
+    if (!isNaN(pomodoroInputValue) && !isNaN(curtoInputValue) && !isNaN(longoInputValue)) {
+        definirTempo(pomodoroInputValue);
+        localStorage.setItem('pomodoroInputValue', pomodoroInputValue);
+
+        definirTempo(curtoInputValue);  // Corrigido aqui
+        localStorage.setItem('curtoInputValue', curtoInputValue);
+
+        definirTempo(longoInputValue);  // Corrigido aqui
+        localStorage.setItem('longoInputValue', longoInputValue);
+
+        // Atualize os campos de entrada com os novos valores
+        
+    } else {
+        alert('Por favor, insira valores numéricos válidos.');
+    }
+});
+
+function mostrarConfiguracaoAtual() {
+    const pomodoroInputValue = localStorage.getItem('pomodoroInputValue') || 25;
+    const curtoInputValue = localStorage.getItem('curtoInputValue') || 5;
+    const longoInputValue = localStorage.getItem('longoInputValue') || 15;
+
+    pomodoroInput.value = pomodoroInputValue;
+    curtoInput.value = curtoInputValue;
+    longoInput.value = longoInputValue;
+}
+
+function configurarContextoInicial() {
+    const contextoSalvo = localStorage.getItem('contextoAtual');
+    const pomodoroInputValue = localStorage.getItem('pomodoroInputValue') || 25;
+    const curtoInputValue = localStorage.getItem('curtoInputValue') || 5;
+    const longoInputValue = localStorage.getItem('longoInputValue') || 15;
+
+    pomodoroInput.value = pomodoroInputValue;
+    curtoInput.value = curtoInputValue;
+    longoInput.value = longoInputValue;
+
+    foco();  // Configurar inicialmente como foco
+
+    if (contextoSalvo === 'foco') {
+        foco();
+        definirTempo(pomodoroInputValue);
+    } else if (contextoSalvo === 'curto') {
+        curto();
+        definirTempo(curtoInputValue);
+    } else if (contextoSalvo === 'longo') {
+        longo();
+        definirTempo(longoInputValue);
+    }
+}
+
+
+mostrarConfiguracaoAtual();
+configurarContextoInicial();
+
 let intervaloId = null;
 let contagemFoco = 0;
 
 function foco() {
-    definirTempo(15);
+    definirTempo(pomodoroInput.value);
     alterarContexto('foco');
     adicionarClasseAtiva(focoBt);
 }
 
 function curto() {
-    definirTempo(3);
+    definirTempo(curtoInput.value);
     alterarContexto('curto');
     adicionarClasseAtiva(curtoBt);
 }
 
 function longo() {
-    definirTempo(9);
+    definirTempo(longoInput.value);
     alterarContexto('longo');
     adicionarClasseAtiva(longoBt);
 }
 
 function definirTempo(segundos) {
-    tempoDecorridoEmsegundos = segundos;
+    tempoDecorridoEmsegundos = segundos * 60;
     mostrarTempo();
 }
 
@@ -51,20 +141,6 @@ function alterarContexto(contexto) {
     html.setAttribute('data-contexto', contexto);
     localStorage.setItem('contextoAtual', contexto);
 }
-
-function configurarContextoInicial() {
-    const contextoSalvo = localStorage.getItem('contextoAtual');
-    foco();
-    if (contextoSalvo === 'foco'){
-        foco();
-    }if(contextoSalvo == 'longo'){
-        longo();
-    }else if(contextoSalvo == 'curto'){
-        curto();
-    }
-    
-}
-
 function contagemRegressiva() {
     if (tempoDecorridoEmsegundos <= 0) {
         finalizarFoco();
@@ -310,4 +386,5 @@ function atualizarQuantidadeFocos() {
 document.querySelector('header h1').addEventListener('click', atualizarQuantidadeFocos);
 document.addEventListener('DOMContentLoaded', () => {
     configurarContextoInicial();
+    mostrarConfiguracaoAtual();
 });

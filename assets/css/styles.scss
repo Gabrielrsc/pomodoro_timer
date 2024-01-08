@@ -3,6 +3,7 @@
 @import './arquivos/container-relogio';
 @import './arquivos/contador-de-foco';
 @import './arquivos/campo-tarefas';
+@import './arquivos/configuracao-pomodoro';
 
 
 /* Importação de Fontes */
@@ -17,6 +18,11 @@
     box-sizing: border-box;
 }
 
+
+html{
+    position: relative;
+}
+
 /* Body */
 body {
     max-width: 510px;
@@ -26,3 +32,9 @@ body {
     font-family: var(--font-texto);
 }
 
+.scroll{
+    overflow: hidden;
+}
+.esconder{
+    display: none;
+}

@@ -15,7 +15,43 @@
     <script src="./assets/js/main.js" defer></script>
     <header>
         <h1>Pomodoro<span>Timer</span></h1>
+        <img src="./assets/img/config.png" alt="btn config" class="btn_config">
     </header>
+    <div class="configuracao_pomodoro_container esconder">
+        <div class="configuracao_pomodoro">
+            <div class="cabecalho_configuracao">
+                <span>Configuração</span>
+                <img src="./assets/img/remove.png" alt="close" class="remover_configuracao">
+            </div>
+
+            <div class="configuracao_timer">
+                <h3>CRONÔMETRO</h3>
+                <h4>Tempo (minutos)</h4>
+
+                <form class="form_timer">
+                    <div>
+                        <label for="pomodoro">Pomodoro</label>
+                        <input type="number" name="pomodoro" id="pomodoroInput">
+                    </div>
+                    <div>
+                        <label for="curto">Pausa Curta</label>
+                        <input type="number" name="curto" id="curtoInput">
+                    </div>
+                    <div>
+                        <label for="longo">Pausa Longa</label>
+                        <input type="longo" name="longo" id="longoInput">
+                    </div>
+                </form>
+
+            </div>
+
+            <button class="configuracao_botao">OK</button>
+
+
+        </div>
+        
+    </div>
+  
     <section class="container-relogio">
         <div class="tipo-foco">
             <ul>

@@ -3,9 +3,13 @@
 
 // Header
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-align: left;
     margin: 1rem;
     border-bottom: 1px solid var(--cor-principal);
+    padding-bottom: 1rem;
   
     h1 {
       font-family: var(--font-logo);
@@ -13,11 +17,17 @@ header {
       text-transform: uppercase;
       font-size: 1.5rem;
       color: #FFF;
-      margin-bottom: 1rem;
+      
   
       span {
         color: var(--cor-principal);
       }
+    }
+    .btn_config{
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin: 0 5px;
     }
   }
   
