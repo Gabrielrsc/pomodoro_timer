@@ -83,7 +83,7 @@ header .btn_config {
   font-size: 0.7rem;
   color: #FFF;
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid var(--cor-principal);
+  border: 1px solid var(--cor-principal);
   padding: 0rem 2rem;
   height: 40px;
   border-radius: 4px;
@@ -351,26 +351,35 @@ header .btn_config {
 
 .configuracao_pomodoro_container {
   display: flex;
-  align-items: center;
   position: absolute;
-  padding: 1rem;
   top: 0;
+  left: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  padding: 0 1rem;
+  min-width: 360px;
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 .configuracao_pomodoro_container .configuracao_pomodoro {
+  margin: auto;
   border-radius: 0.5rem;
+  min-width: 328px;
   width: 100vw;
   background-color: #FFF;
 }
-.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_botao {
+.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_botao-container {
+  text-align: right;
+}
+.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_botao-container .configuracao_botao {
   margin: 1rem;
   margin-top: 0rem;
   width: 75px;
-  height: 30px;
+  height: 40px;
+  background-color: var(--cor-principal);
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFF;
 }
 .configuracao_pomodoro_container .configuracao_pomodoro .cabecalho_configuracao {
   display: flex;
@@ -389,9 +398,19 @@ header .btn_config {
   margin: 1rem;
   padding-bottom: 1rem;
 }
-.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer h3 {
-  font-size: 1rem;
+.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer .title-relogio {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer .title-relogio .icon_cronometro {
+  width: 1rem;
+  height: 1rem;
+}
+.configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer .title-relogio h3 {
+  font-size: 1rem;
 }
 .configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer h4 {
   font-size: 0.9rem;
@@ -407,12 +426,24 @@ header .btn_config {
 .configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer .form_timer div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .configuracao_pomodoro_container .configuracao_pomodoro .configuracao_timer .form_timer div input {
+  font-family: var(--font-texto);
+  font-size: 1rem;
   width: 80px;
-  height: 30px;
+  height: 40px;
+  padding: 0.6rem;
+  background-color: rgb(239, 239, 239);
+  border: none;
+  border-radius: 0.4rem;
 }
 
+@media (min-width: 510px) {
+  .configuracao_pomodoro_container .configuracao_pomodoro {
+    max-width: 480px;
+  }
+}
 /* Importação de Fontes */
 /* Reset de Estilos Globais */
 * {
@@ -427,6 +458,7 @@ html {
 
 /* Body */
 body {
+  height: 100vh;
   max-width: 510px;
   min-width: 360px;
   margin: auto;
