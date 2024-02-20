@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Nerko+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>PomodoroTimer</title>
 </head>
 
@@ -95,10 +96,10 @@
     <section class="campo__tarefas">
         <div class="tarefas">
             <h3>Tarefas</h3>
-            <div class="opcaos"><img src="./assets/img/threedots-white.png" alt="Ícone de opções"></div>
+            <div class="opcaos"><i class="fa-solid fa-ellipsis-vertical btn_config" ></i></div>
             <ul class="opcaos__menu">
-                <li><img src="./assets/img/delete-black.png" alt="Ícone de excluir">Limpar tarefas concluídas</li>
-                <li><img src="./assets/img/delete-black.png" alt="Ícone de excluir">Limpar todas as tarefas</li>
+                <li><i class="fa-solid fa-trash"></i> Limpar tarefas concluídas</li>
+                <li><i class="fa-solid fa-trash"></i> Limpar todas as tarefas</li>
             </ul>
         </div>
         <ul class="tarefas__todo"></ul>
@@ -121,8 +122,8 @@
                 </div>
             </div>
             <div class="btns">
-                <button class="btn__cancelar_adicao">Cancelar</button>
-                <button class="btn__salvar">Salvar</button>
+                <button class="btn__cancelar_adicao"><i class="fa-solid fa-x"></i>Cancelar</button>
+                <button class="btn__salvar"><i class="fa-solid fa-floppy-disk"></i>Salvar</button>
             </div>
         </form>
     </section>

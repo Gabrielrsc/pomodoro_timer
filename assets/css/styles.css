@@ -161,6 +161,8 @@ header .btn_config {
 }
 .campo__tarefas .tarefas .opcaos {
   cursor: pointer;
+  font-size: 1.1rem;
+  color: #FFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,7 +192,13 @@ header .btn_config {
   display: flex;
   text-align: center;
   padding: 1rem;
+  gap: 1rem;
   align-items: center;
+}
+.campo__tarefas .tarefas .opcaos__menu li:hover {
+  background-color: var(--cor-terciaria);
+  border-radius: 5px;
+  color: #fff;
 }
 .campo__tarefas .tarefas .opcaos__menu img {
   margin-right: 0.5rem;
@@ -215,6 +223,10 @@ header .btn_config {
   border-radius: 6px;
   padding: 1rem;
   margin: 0.5rem 0;
+}
+.campo__tarefas .tarefas__todo li .editaTarefaInput {
+  color: var(--cor-principal);
+  padding: 0.2rem;
 }
 .campo__tarefas .tarefas__todo li .tarefas_nome {
   display: flex;
@@ -246,6 +258,17 @@ header .btn_config {
 }
 .campo__tarefas .tarefas__todo li .tarefas_nome input[type=checkbox]:checked + .checkbox-custom {
   background-color: var(--cor-principal); /* Cor de fundo quando marcado */
+}
+.campo__tarefas .tarefas__todo li div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.campo__tarefas .tarefas__todo li div .icon_editar {
+  color: var(--cor-principal);
+  font-size: 1.1rem;
+  cursor: pointer;
 }
 .campo__tarefas .tarefas__todo li:hover, .campo__tarefas .tarefas__todo .li__acionado {
   border-color: var(--cor-principal);
@@ -329,6 +352,9 @@ header .btn_config {
   gap: 0.5rem;
 }
 .campo__tarefas .adicionando__tarefas .btns button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
   font-family: var(--font-texto);
   border: none;
   padding: 0.5rem;

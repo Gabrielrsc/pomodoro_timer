@@ -17,6 +17,8 @@
 
         .opcaos {
             cursor: pointer;
+            font-size: 1.1rem;
+            color: #FFF;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -48,7 +50,14 @@
                 display: flex;
                 text-align: center;
                 padding: 1rem;
+                gap: 1rem;
                 align-items: center;
+            }
+
+            li:hover{
+                background-color: var(--cor-terciaria);
+                border-radius: 5px;
+                color: #fff;
             }
 
             img {
@@ -86,6 +95,11 @@
             padding: 1rem;
             margin: 0.5rem 0;
 
+            .editaTarefaInput{
+                color: var(--cor-principal);
+                padding: 0.2rem;
+            }
+
             .tarefas_nome {
                 display: flex;
                 gap: 1rem;
@@ -120,8 +134,20 @@
                             background-color: var(--cor-principal); /* Cor de fundo quando marcado */
                         }
                    }
-              
-           
+
+                 
+                div{
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    gap: 0.5rem;
+                .icon_editar{
+                    color: var(--cor-principal);
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                   
+                   }
+                }
         }
         li:hover, .li__acionado{
             border-color: var(--cor-principal);
@@ -212,9 +238,12 @@
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            gap: 0.5rem;
+            gap: .5rem;
 
             button {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
                 font-family: var(--font-texto);
                 border: none;
                 padding: 0.5rem;
