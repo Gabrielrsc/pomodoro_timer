@@ -6,6 +6,8 @@ const pomodoroInput = document.getElementById('pomodoroInput');
 const curtoInput = document.getElementById('curtoInput');
 const longoInput = document.getElementById('longoInput');
 
+
+
 //Funções 
 
 // Função para abrir ou fechar o menu de configuração
@@ -16,8 +18,9 @@ function abrirEFecharMenuConfiguracao() {
 //Converter Tempo para minutos
 function definirTempo(segundos) {
     tempoDecorridoEmsegundos = segundos * 60;
+    mostrarTempo(); // Mostrar o tempo inicial ao definir um novo tempo
+    
 }
-
 
 // Evendos de Click
 
@@ -25,6 +28,14 @@ function definirTempo(segundos) {
 botaoAbrirConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao);
 botaoFecharConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao);
 
+// Função para carregar os tempos configurados do armazenamento local
+function carregarTemposConfigurados() {
+    pomodoroInput.value = localStorage.getItem('pomodoroInputValue') || 25;
+    curtoInput.value = localStorage.getItem('curtoInputValue') || 5;
+    longoInput.value = localStorage.getItem('longoInputValue') || 15;
+}
+
+carregarTemposConfigurados();
 
 // Configurando os tempos nos inputs 
 botaoConfiguracao.addEventListener('click', () => {
@@ -33,22 +44,21 @@ botaoConfiguracao.addEventListener('click', () => {
     const longoInputValue = parseInt(longoInput.value);
 
 
-    //Verificar se o valor informado é um numero
-   
+    //Verificar se o valor informado é um numero   
     if (!isNaN(pomodoroInputValue) && !isNaN(curtoInputValue) && !isNaN(longoInputValue)) {
-        definirTempo(pomodoroInputValue);
+        definirTempo(pomodoroInputValue); 
         localStorage.setItem('pomodoroInputValue', pomodoroInputValue);
-
-        definirTempo(curtoInputValue);
         localStorage.setItem('curtoInputValue', curtoInputValue);
-
-        definirTempo(longoInputValue);
         localStorage.setItem('longoInputValue', longoInputValue);
+        
         abrirEFecharMenuConfiguracao();
     } else {
         alert('Por favor, insira valores numéricos válidos.');
         
     }
 
+ 
+
 
 });
+
