@@ -1,5 +1,3 @@
-let tempoDecorridoEmsegundos = localStorage.getItem('pomodoroInputValue')// * 60
-
 const html = document.querySelector('html');
 const body = document.querySelector('body');
 
@@ -52,7 +50,6 @@ function alterarContexto(contexto) {
     html.setAttribute('data-contexto', contexto);
     localStorage.setItem('contextoAtual', contexto);
 }
-
 function contagemRegressiva() {
     if (tempoDecorridoEmsegundos <= 0) {
         finalizarFoco();
@@ -61,12 +58,12 @@ function contagemRegressiva() {
 
     tempoDecorridoEmsegundos = Math.max(0, tempoDecorridoEmsegundos - 1);
     mostrarTempo(); // Mostrar o tempo atualizado a cada segundo
+    
 }
 let cicloPomodoro = parseInt(localStorage.getItem('cicloPomodoro')) || 0;
 let pomodorosTotal = parseInt(localStorage.getItem('pomodorosTotal')) || 0;
 
 function finalizarFoco() {
-    
     audiofim.play();
     zerar();
     const contextoAtual = html.getAttribute('data-contexto');
@@ -82,17 +79,15 @@ function finalizarFoco() {
             localStorage.setItem('cicloPomodoro', cicloPomodoro);
             longo()  
         } 
+        if (tarefaSelecionadaIndex !== null) {
+            listaDeTarefas[tarefaSelecionadaIndex].pomodorosRealizados++;
+            mostrarTarefas();
+
+
     } else if (contextoAtual === 'curto' || contextoAtual === 'longo'){
         foco()
     } 
-}
-
-
-function obterTarefaAtual() {
-    const nomeTarefaAtual = mensagemFoco.textContent.replace('Foco na Tarefa: ', '');
-    return tarefas.find(tarefa => tarefa.descricao === nomeTarefaAtual);
-}
-
+}}
 startPauseBt.addEventListener('click', () => {
     if (intervaloId) {
         zerar();
@@ -109,12 +104,19 @@ function zerar() {
     startPauseBt.textContent = 'Start';
     intervaloId = null;
 }
+//Converter Tempo para minutos
+function definirTempo(segundos) {
+    tempoDecorridoEmsegundos = segundos * 60;
+    mostrarTempo(); // Mostrar o tempo inicial ao definir um novo tempo
+    
+}
 
 function mostrarTempo() {
     const minutos = Math.floor(tempoDecorridoEmsegundos / 60);
     const segundos = tempoDecorridoEmsegundos % 60;
     tempoNaTela.innerHTML = `${minutos < 10 ? '0' : ''}${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
 }
+document.addEventListener('DOMContentLoaded', () => {
+    foco()
+});
 
-
-mostrarTempo()

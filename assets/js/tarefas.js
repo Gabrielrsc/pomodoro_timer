@@ -1,4 +1,5 @@
 let listaDeTarefas = [];
+let tarefaSelecionadaIndex = null
 
 const adicionarTarefas = document.querySelector('.adicionar__tarefas');
 const campoAdicionarTarefa = document.querySelector('.adicionando__tarefas');
@@ -103,9 +104,11 @@ ulTarefas.addEventListener('click', function(event) {
   });
 
   tarefaClicada.classList.add('li__acionado');
+  tarefaSelecionadaIndex = parseInt(tarefaClicada.getAttribute('data-value'));
   nomeTarefa = tarefaClicada.querySelector('.tarefas_nome span').textContent;
   mensagemFoco.textContent = `Foco na Tarefa: ${nomeTarefa}`;
 });
+
 
 function atualizaLocalStorage() {
   localStorage.setItem('listaDeTarefas', JSON.stringify(listaDeTarefas));

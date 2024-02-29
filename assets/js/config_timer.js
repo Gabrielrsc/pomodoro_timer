@@ -2,11 +2,6 @@ const abrirConfiguracao = document.querySelector('.configuracao_pomodoro_contain
 const botaoAbrirConfiguracao = document.querySelector('.btn_config');
 const botaoFecharConfiguracao = document.querySelector('.remover_configuracao');
 const botaoConfiguracao = document.querySelector('.configuracao_botao');
-const pomodoroInput = document.getElementById('pomodoroInput');
-const curtoInput = document.getElementById('curtoInput');
-const longoInput = document.getElementById('longoInput');
-
-
 
 //Funções 
 
@@ -15,15 +10,6 @@ function abrirEFecharMenuConfiguracao() {
     abrirConfiguracao.classList.toggle('esconder');
     body.classList.toggle('scroll');
 }
-//Converter Tempo para minutos
-function definirTempo(segundos) {
-    tempoDecorridoEmsegundos = segundos * 60;
-    mostrarTempo(); // Mostrar o tempo inicial ao definir um novo tempo
-    
-}
-
-// Evendos de Click
-
 // Eventos para abrir e fechar o menu de configuração
 botaoAbrirConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao);
 botaoFecharConfiguracao.addEventListener('click', abrirEFecharMenuConfiguracao);
@@ -34,8 +20,6 @@ function carregarTemposConfigurados() {
     curtoInput.value = localStorage.getItem('curtoInputValue') || 5;
     longoInput.value = localStorage.getItem('longoInputValue') || 15;
 }
-
-carregarTemposConfigurados();
 
 // Configurando os tempos nos inputs 
 botaoConfiguracao.addEventListener('click', () => {
@@ -57,8 +41,6 @@ botaoConfiguracao.addEventListener('click', () => {
         
     }
 
- 
-
-
 });
+carregarTemposConfigurados();
 
